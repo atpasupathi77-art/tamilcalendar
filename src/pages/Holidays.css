@@ -19,21 +19,25 @@
   min-height: 100vh;
 }
 
-.holidays-container h1 {
+.holidays-header {
   text-align: center;
-  color: var(--primary);
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  text-align: center;
-  color: var(--primary-dark);
-  font-size: 0.9rem;
   margin-bottom: 24px;
 }
 
-/* Filter dropdown */
+.holidays-header h1 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Filter dropdown access optimizations */
 .filter-wrapper {
   text-align: center;
   margin-bottom: 32px;
@@ -42,7 +46,7 @@
 .filter-wrapper select {
   padding: 10px 20px;
   border-radius: 40px;
-  border: none;
+  border: 1px solid var(--border);
   background: var(--white);
   color: var(--primary);
   font-weight: 600;
@@ -51,9 +55,16 @@
   box-shadow: var(--shadow-sm);
   width: 100%;
   max-width: 280px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Month group */
+.filter-wrapper select:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(180, 95, 6, 0.2);
+}
+
+/* Month group layout */
 .month-group {
   margin-bottom: 32px;
 }
@@ -64,28 +75,35 @@
   border-radius: 40px;
   color: var(--primary-dark);
   font-size: 1.3rem;
+  margin-top: 0;
   margin-bottom: 16px;
   display: inline-block;
+  font-weight: 600;
 }
 
+/* Changed container target to unordered list element */
 .holidays-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Holiday card */
+/* Holiday card list items */
 .holiday-card {
   background: var(--white);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   border-left: 5px solid var(--primary);
   box-shadow: var(--shadow-sm);
-  transition: 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .holiday-card:hover {
   transform: translateX(4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .holiday-date {
@@ -99,6 +117,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
+  margin-top: 0;
   margin-bottom: 4px;
 }
 
@@ -107,7 +126,7 @@
   color: #7f8c8d;
 }
 
-/* No holidays */
+/* No holidays warning box */
 .no-holidays {
   text-align: center;
   padding: 40px;
@@ -115,27 +134,33 @@
   font-size: 1rem;
 }
 
-/* Mobile responsive */
+/* Mobile responsive layout break scales */
 @media (max-width: 550px) {
   .holidays-container {
     padding: 16px;
   }
-  .holidays-container h1 {
+  
+  .holidays-header h1 {
     font-size: 1.4rem;
   }
+  
   .filter-wrapper select {
     max-width: 100%;
     font-size: 0.9rem;
   }
+  
   .month-group h2 {
     font-size: 1.1rem;
   }
+  
   .holiday-card {
     padding: 12px 16px;
   }
+  
   .holiday-name-ta {
     font-size: 1rem;
   }
+  
   .holiday-name-en {
     font-size: 0.75rem;
   }

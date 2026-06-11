@@ -6,45 +6,58 @@
   min-height: 100vh;
 }
 
-.festivals-container h1 {
+.festivals-header {
   text-align: center;
-  color: var(--primary, #b45f06);
-  font-size: 1.8rem;
   margin-bottom: 24px;
 }
 
-/* Filter buttons */
+.festivals-header h1 {
+  color: var(--primary, #b45f06);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+/* Filter navigation buttons layout */
 .filter-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   margin-bottom: 32px;
+  padding: 0;
+  list-style: none;
 }
 
 .filter-buttons button {
   padding: 8px 20px;
   border-radius: 40px;
-  border: none;
+  border: 1px solid var(--border, #e0cba0);
   background: var(--white, white);
   color: var(--primary, #b45f06);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .filter-buttons button.active {
   background: var(--primary, #b45f06);
   color: white;
+  border-color: var(--primary, #b45f06);
 }
 
 .filter-buttons button:active {
   transform: scale(0.96);
 }
 
-/* Month group */
+.filter-buttons button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(180, 95, 6, 0.3);
+}
+
+/* Month group section */
 .month-group {
   margin-bottom: 32px;
 }
@@ -55,17 +68,23 @@
   border-radius: 40px;
   color: var(--primary-dark, #8b5a2b);
   font-size: 1.2rem;
+  margin-top: 0;
   margin-bottom: 16px;
   display: inline-block;
+  font-weight: 600;
 }
 
-/* Festival cards */
+/* Unordered list collection */
 .festivals-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
+/* Festival item card */
 .festival-card {
   background: var(--white, white);
   border-radius: 20px;
@@ -75,7 +94,12 @@
   gap: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-left: 5px solid;
-  transition: 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.festival-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .festival-card.hindu {
@@ -94,7 +118,7 @@
   background: var(--bg, #fff9f0);
   padding: 6px 12px;
   border-radius: 30px;
-  min-width: 70px;
+  min-width: 75px;
   text-align: center;
   color: var(--primary, #b45f06);
 }
@@ -107,6 +131,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: #2c3e2f;
+  margin-top: 0;
   margin-bottom: 4px;
 }
 
@@ -122,36 +147,50 @@
   background: var(--bg, #fff9f0);
   color: var(--primary-dark, #8b5a2b);
   white-space: nowrap;
+  font-weight: 600;
 }
 
-/* No festivals message */
+/* No festivals feedback state */
 .no-festivals {
   text-align: center;
   padding: 40px;
-  color: #999;
+  color: #7f8c8d;
   font-size: 1rem;
 }
 
-/* Mobile responsive */
+/* Mobile responsive styling breaks */
 @media (max-width: 550px) {
   .festivals-container {
     padding: 16px;
   }
-  .festivals-container h1 {
+  
+  .festivals-header h1 {
     font-size: 1.5rem;
   }
+  
   .filter-buttons button {
     padding: 6px 14px;
     font-size: 0.8rem;
   }
+  
   .festival-card {
     flex-wrap: wrap;
+    gap: 8px;
   }
+  
+  .festival-details {
+    min-width: calc(100% - 95px); /* Force alignment on mid-scale viewports */
+  }
+  
   .festival-type-badge {
-    margin-left: auto;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
   }
+  
   .festival-date {
-    min-width: 60px;
-    font-size: 0.9rem;
+    min-width: 65px;
+    font-size: 0.95rem;
   }
 }

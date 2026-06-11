@@ -1,3 +1,4 @@
+/* Custom Global Property Definitions Matrix */
 :root {
   --primary: #1E3A8A;
   --primary-light: #DBEAFE;
@@ -11,6 +12,7 @@
   --radius-sm: 12px;
 }
 
+/* Base Document Node Scaffolding */
 .muhurtham-container {
   max-width: 900px;
   margin: 0 auto;
@@ -19,23 +21,52 @@
   min-height: 100vh;
 }
 
+.muhurtham-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
 .muhurtham-container h1 {
   text-align: center;
   color: var(--primary);
   font-size: 1.8rem;
+  margin-top: 0;
   margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .subtitle {
   text-align: center;
   color: #475569;
   font-size: 0.9rem;
-  margin-bottom: 24px;
+  margin: 0;
+}
+
+/* Unified Control Filter Panel Configuration Layout */
+.muhurtham-controls {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
 
 .filter-wrapper {
-  text-align: center;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  padding-left: 4px;
 }
 
 .filter-wrapper select {
@@ -48,21 +79,34 @@
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
-  max-width: 300px;
+  transition: border-color 0.2s ease;
+}
+
+.filter-wrapper select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Output Data Chronological Tree Groups */
+.muhurtham-results-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .month-group {
   margin-bottom: 32px;
 }
 
-.month-group h2 {
+.month-group-heading {
   background: var(--primary-light);
-  padding: 8px 16px;
+  padding: 8px 20px;
   border-radius: 40px;
   color: var(--primary-dark);
   font-size: 1.3rem;
+  margin-top: 0;
   margin-bottom: 16px;
   display: inline-block;
+  font-weight: 700;
 }
 
 .dates-list {
@@ -71,71 +115,136 @@
   gap: 12px;
 }
 
+/* Individual Muhurtham Leaf Node Content Cards */
 .muhurtham-card {
   background: var(--bg-card);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   border-left: 5px solid var(--primary);
   box-shadow: var(--shadow-sm);
-  transition: 0.2s;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .muhurtham-card:hover {
   transform: translateX(4px);
 }
 
+/* Normalized Layout Subrows */
+.date-gregorian,
+.date-tamil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .date-gregorian {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.date-gregorian p {
+  margin: 0;
+}
+
+.calendar-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .date-tamil {
   font-size: 0.9rem;
   color: var(--primary-dark);
   background: var(--primary-light);
-  display: inline-block;
-  padding: 4px 12px;
+  display: inline-flex;
+  padding: 4px 14px;
   border-radius: 40px;
+  font-weight: 500;
 }
 
+.date-tamil p {
+  margin: 0;
+}
+
+.accent-dot {
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* Empty State Displays */
 .no-dates {
   text-align: center;
   padding: 40px;
-  color: #7f8c8d;
-  font-size: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border);
+}
+
+.no-dates p {
+  margin: 0;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Footer & Compliance Notice Layout Blocks */
+.muhurtham-footer-info {
+  margin-top: 24px;
 }
 
 .disclaimer {
-  background: #fff3e0;
-  border-left: 5px solid #e67e22;
-  padding: 16px;
+  background: #FFF3E0;
+  border-left: 5px solid #E67E22;
+  padding: 16px 20px;
   border-radius: var(--radius-sm);
-  margin-top: 40px;
   font-size: 0.85rem;
-  color: #5a3e1b;
-  line-height: 1.5;
+  color: #5A3E1B;
+  line-height: 1.6;
 }
 
 .disclaimer strong {
-  color: #c0392b;
+  color: #C0392B;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
+.disclaimer p {
+  margin: 0;
+}
+
+/* Responsive Adaptive Viewport Adjustments */
 @media (max-width: 550px) {
   .muhurtham-container {
-    padding: 16px;
+    padding: 16px 12px;
   }
+  
   .muhurtham-container h1 {
     font-size: 1.4rem;
   }
-  .filter-wrapper select {
-    max-width: 100%;
+
+  .muhurtham-controls {
+    padding: 14px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
-  .month-group h2 {
+  
+  .month-group-heading {
     font-size: 1.1rem;
+    padding: 6px 16px;
   }
+  
   .muhurtham-card {
-    padding: 12px 16px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .date-gregorian {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .date-tamil {
+    font-size: 0.85rem;
+    padding: 4px 12px;
   }
 }

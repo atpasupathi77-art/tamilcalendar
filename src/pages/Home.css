@@ -23,7 +23,7 @@
   font-weight: 600;
   color: #1e3a5f;
   font-family: 'Noto Sans Tamil', sans-serif;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   padding: 0.3rem 1rem;
   border-radius: 40px;
   display: inline-block;
@@ -32,13 +32,13 @@
 .hero-english-date {
   font-size: 1rem;
   color: #475569;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   padding: 0.2rem 1rem;
   border-radius: 40px;
   display: inline-block;
 }
 
-/* Rest of the styles (blog-grid, cards, etc.) remain the same as before */
+/* Blog grid section */
 .blog-grid-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -55,54 +55,140 @@
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 24px;   /* reduced gap */
 }
 
 .blog-card {
   background: #FFFFFF;
-  border-radius: 24px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 16px;           /* reduced from 20px */
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
   border: 1px solid #E2E8F0;
 }
+
 .blog-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px -4px rgba(0,0,0,0.1);
 }
+
+/* Icon area – smaller square container */
 .blog-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1 / 0.8;   /* slightly less tall, but keep square-ish */
+  overflow: hidden;
 }
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.blog-card:hover .feature-image {
+  transform: scale(1.05);
+}
+
+/* Fallback emoji (if image fails) */
+.blog-icon .emoji-fallback {
+  font-size: 2.5rem;
+}
+
 .blog-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;      /* reduced from 1.4rem */
   font-weight: 700;
   color: #1e3a5f;
+  margin-bottom: 8px;
+}
+
+.blog-excerpt {
+  font-size: 0.85rem;      /* reduced from 0.95rem */
+  color: #475569;
+  line-height: 1.4;
   margin-bottom: 12px;
 }
-.blog-excerpt {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+
 .blog-read-more {
   display: inline-block;
   background: #DBEAFE;
   color: #1e40af;
-  padding: 8px 20px;
+  padding: 6px 16px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   transition: background 0.2s;
 }
+
 .blog-read-more:hover {
   background: #1e3a5f;
   color: white;
 }
 
+/* Rich Content Block SEO Typography Styling */
+.seo-content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid #E2E8F0;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.seo-content h2 {
+  font-size: 1.8rem;
+  color: #1e3a5f;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.seo-content h3 {
+  font-size: 1.4rem;
+  color: #1e40af;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.seo-content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.seo-content ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.seo-content li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+/* CRITICAL SEO ACCESSIBILITY UTILITY CLASS */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive */
 @media (max-width: 700px) {
   .hero-tamil-date {
     font-size: 1rem;
@@ -115,6 +201,30 @@
   }
   .blog-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
+  .blog-card {
+    padding: 12px;
+  }
+  .blog-title {
+    font-size: 1.1rem;
+  }
+  .blog-excerpt {
+    font-size: 0.8rem;
+  }
+  .seo-content {
+    margin: 20px;
+    padding: 20px;
+  }
+  .seo-content h2 {
+    font-size: 1.4rem;
+  }
+  .seo-content h3 {
+    font-size: 1.2rem;
+  }
+}
+.blog-image-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }

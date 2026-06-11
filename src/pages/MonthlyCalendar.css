@@ -1,3 +1,4 @@
+/* Base Container Layout */
 .monthly-container {
   max-width: 900px;
   margin: 0 auto;
@@ -5,18 +6,44 @@
   background: var(--bg-body, #F0F4FA);
   min-height: 100vh;
 }
+
+.calendar-loading-text {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary, #1E3A8A);
+  font-size: 1.1rem;
+  margin-top: 4rem;
+}
+
+/* Header Text Alignments */
+.monthly-calendar-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
 .monthly-container h1 {
   text-align: center;
   color: var(--primary, #1E3A8A);
   font-size: 1.8rem;
+  margin-top: 0;
   margin-bottom: 8px;
+  font-weight: 700;
 }
+
 .subtitle {
   text-align: center;
   color: var(--text-secondary, #475569);
   margin-bottom: 32px;
 }
-.month-card {
+
+/* Structural Column Layout Stack */
+.months-grid-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Monthly Calendar Page Card Structures */
+.month-sheet-card {
   background: var(--bg-card, #FFFFFF);
   border-radius: 24px;
   padding: 24px;
@@ -24,37 +51,82 @@
   box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.05));
   border: 1px solid var(--border, #E2E8F0);
 }
-.month-card h2 {
+
+.month-sheet-title h2 {
   text-align: center;
   color: var(--primary, #1E3A8A);
   font-size: 1.6rem;
+  margin-top: 0;
   margin-bottom: 20px;
+  font-weight: 700;
 }
+
+/* Image Wrappers and Aspect Threshold Elements preventing layout shifts */
 .month-image-wrapper {
   text-align: center;
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .month-image {
   max-width: 100%;
   height: auto;
+  display: block;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
+/* Fallback Assets Style Block */
 .image-fallback {
+  width: 100%;
   background: #f1f5f9;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
   border-radius: 16px;
   color: #475569;
   font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
+
+.fallback-icon {
+  font-size: 2rem;
+  display: block;
+}
+
+.fallback-text {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive Scaling Rulesets */
 @media (max-width: 550px) {
   .monthly-container {
     padding: 16px;
   }
+  
   .monthly-container h1 {
     font-size: 1.4rem;
   }
-  .month-card h2 {
+  
+  .month-sheet-card {
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .month-sheet-title h2 {
     font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .month-image-wrapper {
+    min-height: 200px;
   }
 }
